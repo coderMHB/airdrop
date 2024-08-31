@@ -18,13 +18,23 @@ main {
   align-items: center;
 }
 
-.airdrop {
-  text-align: center;
+.parent-goblin{
+  padding: 1rem 1.5rem;
   background: #6969691a;
-  padding: 1rem 3rem;
-  border-radius: 20%;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
   animation: fadeIn 1s ease-in-out;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border-radius: 20%;
+}
+
+.airdrop {
+  width: 210px;
+  height: 210px;
+  background-position: center;
+  background-image: url(../img/goblin.png);
+  text-align: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .airdrop img {
