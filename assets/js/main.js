@@ -21,20 +21,22 @@ function claimToken(event) {
   plusOne.className = 'scor';
   plusOne.innerText = '+1';
   
-  // استفاده از offset برای محاسبه موقعیت کلیک
-  const x = event.offsetX; // موقعیت X نسبت به گابلین
-  const y = event.offsetY; // موقعیت Y نسبت به گابلین
-
-  // قرار دادن عنصر "+1" در موقعیت کلیک
-  plusOne.style.position = 'absolute'; // اطمینان از اینکه موقعیت به درستی تنظیم شود
-  plusOne.style.left = `${x}px`;
-  plusOne.style.top = `${y}px`;
-  goblin.querySelector('.parent-img').appendChild(plusOne);
-
-  // محو کردن بعد از 350 میلی‌ثانیه
-  setTimeout(() => {
-    plusOne.remove();
-  }, 350);
+  for (let i = 0; i <= 5; i++) {
+    // استفاده از offset برای محاسبه موقعیت کلیک
+    const x = event.offsetX; // موقعیت X نسبت به گابلین
+    const y = event.offsetY; // موقعیت Y نسبت به گابلین
+  
+    // قرار دادن عنصر "+1" در موقعیت کلیک
+    plusOne.style.position = 'absolute'; // اطمینان از اینکه موقعیت به درستی تنظیم شود
+    plusOne.style.left = `${x}px`;
+    plusOne.style.top = `${y}px`;
+    goblin.querySelector('.parent-img').appendChild(plusOne);
+  
+    // محو کردن بعد از 350 میلی‌ثانیه
+    setTimeout(() => {
+      plusOne.remove();
+    }, 350); 
+  }
 }
 
 // افزودن رویداد کلیک به گابلین
