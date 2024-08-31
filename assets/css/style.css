@@ -87,3 +87,17 @@ main {
 #count{
   display: inline-block;
 }
+
+
+
+.plus-one {
+  position: absolute;
+  font-size: 24px;
+  color: red;
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
