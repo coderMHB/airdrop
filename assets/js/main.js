@@ -10,6 +10,10 @@ toUSD.innerHTML = `${(tokenCount / 1000).toFixed(2)}$`;
 countDisplay.innerHTML = tokenCount;
 
 function claimToken(event) {
+  // جلوگیری از رفتار پیش‌فرض
+  event.preventDefault();
+
+  // افزایش تعداد توکن
   tokenCount++;
   localStorage.setItem("token", tokenCount);
   tokenCountDisplay.innerHTML = tokenCount;
@@ -20,27 +24,39 @@ function claimToken(event) {
   const plusOne = document.createElement('div');
   plusOne.className = 'scor';
   plusOne.innerText = '+1';
-  
-  for (let i = 0; i <= 5; i++) {
-    // استفاده از offset برای محاسبه موقعیت کلیک
-    const x = event.offsetX; // موقعیت X نسبت به گابلین
-    const y = event.offsetY; // موقعیت Y نسبت به گابلین
-  
-    // قرار دادن عنصر "+1" در موقعیت کلیک
-    plusOne.style.position = 'absolute'; // اطمینان از اینکه موقعیت به درستی تنظیم شود
-    plusOne.style.left = `${x}px`;
-    plusOne.style.top = `${y}px`;
-    goblin.querySelector('.parent-img').appendChild(plusOne);
-  
-    // محو کردن بعد از 350 میلی‌ثانیه
-    setTimeout(() => {
-      plusOne.remove();
-    }, 350); 
-  }
+
+  // استفاده از offset برای محاسبه موقعیت کلیک
+  const x = event.offsetX; // موقعیت X نسبت به گابلین
+  const y = event.offsetY; // موقعیت Y نسبت به گابلین
+
+  // قرار دادن عنصر "+1" در موقعیت کلیک
+  plusOne.style.position = 'absolute'; // اطمینان از اینکه موقعیت به درستی تنظیم شود
+  plusOne.style.left = `${x}px`;
+  plusOne.style.top = `${y}px`;
+  goblin.querySelector('.parent-img').appendChild(plusOne);
+
+  // محو کردن بعد از 350 میلی‌ثانیه
+  setTimeout(() => {
+    plusOne.remove();
+  }, 350);
 }
 
-// افزودن رویداد کلیک به گابلین
+// افزودن رویداد کلیک و لمسی به گابلین
 goblin.addEventListener("click", claimToken);
+goblin.addEventListener("touchstart", (event) => {
+  // جلوگیری از رفتار پیش‌فرض
+  event.preventDefault();
+  // برای هر لمس، تابع claimToken را فراخوانی کنید
+  for (let touch of event.touches) {
+    const simulatedEvent = new MouseEvent("click", {
+      clientX: touch.clientX,
+      clientY: touch.clientY,
+      bubbles: true,
+      cancelable: true
+    });
+    goblin.dispatchEvent(simulatedEvent);
+  }
+});
 
 // جلوگیری از انتخاب و کشیدن
 goblin.addEventListener("selectstart", (event) => {

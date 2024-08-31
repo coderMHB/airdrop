@@ -18,14 +18,20 @@ main {
   align-items: center;
 }
 
-.parent-goblin{
+.parent-goblin {
   padding: 1rem 1.5rem;
   background: #6969691a;
   cursor: pointer;
   animation: fadeIn 1s ease-in-out;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   border-radius: 20%;
+  -webkit-user-select: none; /* جلوگیری از انتخاب متن */
+  -moz-user-select: none; /* جلوگیری از انتخاب متن */
+  -ms-user-select: none; /* جلوگیری از انتخاب متن */
+  user-select: none; /* جلوگیری از انتخاب متن */
+  touch-action: manipulation; /* جلوگیری از رفتار پیش‌فرض لمسی */
 }
+
 
 .airdrop {
   width: 210px;
