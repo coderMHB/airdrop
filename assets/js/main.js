@@ -25,9 +25,10 @@ function claimToken(event) {
   plusOne.className = 'scor';
   plusOne.innerText = '+1';
 
-  // استفاده از offset برای محاسبه موقعیت کلیک
-  const x = event.offsetX; // موقعیت X نسبت به گابلین
-  const y = event.offsetY; // موقعیت Y نسبت به گابلین
+  // محاسبه موقعیت کلیک
+  const rect = goblin.getBoundingClientRect();
+  const x = event.clientX - rect.left - 15; // موقعیت X نسبت به گابلین
+  const y = event.clientY - rect.top - 15;  // موقعیت Y نسبت به گابلین
 
   // قرار دادن عنصر "+1" در موقعیت کلیک
   plusOne.style.position = 'absolute'; // اطمینان از اینکه موقعیت به درستی تنظیم شود
@@ -48,6 +49,7 @@ goblin.addEventListener("touchstart", (event) => {
   event.preventDefault();
   // برای هر لمس، تابع claimToken را فراخوانی کنید
   for (let touch of event.touches) {
+    // ایجاد یک رویداد شبیه‌سازی شده
     const simulatedEvent = new MouseEvent("click", {
       clientX: touch.clientX,
       clientY: touch.clientY,
