@@ -30,6 +30,11 @@ main {
 .airdrop img {
   width: 150px;
   border-radius: 30px;
+  user-select: none; 
+  -webkit-user-drag: none;
+  -moz-user-select: none; 
+  -ms-user-select: none;
+  pointer-events: auto;
 }
 .airdrop img:hover {
   cursor: pointer;

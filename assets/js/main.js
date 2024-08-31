@@ -31,9 +31,12 @@ goblin.addEventListener("click", claimToken);
 scor.addEventListener("selectstart", (event) => {
   event.preventDefault();
 });
-// document.body.addEventListener("contextmenu", (event) => {
-//   event.preventDefault();
-// });
+goblin.addEventListener("dragstart", (event) => {
+  event.preventDefault();
+});
+document.body.addEventListener("contextmenu", (event) => {
+  event.preventDefault();
+});
 document.body.addEventListener("keydown", (event) => {
   if (event.key == "F12") {
     event.preventDefault();
