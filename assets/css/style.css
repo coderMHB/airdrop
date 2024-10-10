@@ -1,9 +1,14 @@
+@font-face {
+  font-family: Booter;
+  src: url(../fonts/Booter\ -\ Zero\ Zero.woff2);
+}
+
 body {
   font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: linear-gradient(135deg, #405e07, #042a04);
+  background: linear-gradient(135deg, #3a3a3a 50%, #d7e3f8) ;
   color: white;
   display: flex;
   flex-direction: column;
@@ -32,12 +37,10 @@ main {
   touch-action: manipulation; /* جلوگیری از رفتار پیش‌فرض لمسی */
 }
 
-
 .airdrop {
   width: 210px;
   height: 210px;
   background-position: center;
-  background-image: url(../img/goblin.png);
   text-align: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -46,9 +49,9 @@ main {
 .airdrop img {
   width: 150px;
   border-radius: 30px;
-  user-select: none; 
+  user-select: none;
   -webkit-user-drag: none;
-  -moz-user-select: none; 
+  -moz-user-select: none;
   -ms-user-select: none;
   pointer-events: auto;
 }
@@ -64,14 +67,14 @@ main {
   position: absolute;
   font-size: large;
   font-weight: 700;
-  color: #0000009f;
+  color: #00000079;
   /* transition-property: "display"; */
   transition: 250ms;
   animation: 350ms display ease-in-out;
 }
 
-.h-80-vh{
-  height: 80vh;
+.h-80-vh {
+  height: 70vh;
 }
 
 @keyframes display {
@@ -90,11 +93,9 @@ main {
   margin-bottom: 1rem;
 }
 
-#count{
+#count {
   display: inline-block;
 }
-
-
 
 .plus-one {
   position: absolute;
@@ -104,6 +105,10 @@ main {
 }
 
 @keyframes fadeOut {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
